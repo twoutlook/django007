@@ -30,7 +30,8 @@
     {% for item in item_list %}
     <tr>
     <th>{{ item.field1 }}</th>
-    <td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>
+    <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
+    <td><a href='{{ item.field2 }}'>{{ item.field2 }}</a></td>
     <td>{{ item.field3 }}</td>
     <td>{{ item.field4 }}</td>
     <td>{{ item.field5 }}</td>

@@ -85,12 +85,12 @@ def cust(request):
 
 def item001detail(request, item001_id):
     item001=get_object_or_404(Item001, pk=item001_id)
-    context = {'page_title':'item001-富鈦-壓鑄機 編號︰','item001_id': item001_id,'item001': item001}
+    context = {'page_title':'item001-富鈦-壓鑄機 編號︰','item001_id': item001_id,'item001': item001,'item001_upper': '/app001/item001/'}
     return render(request, 'app001/item001detail.html', context)     
 
 def item003detail(request, item001_id):
     item001=get_object_or_404(Item003, pk=item001_id)
-    context = {'page_title':'item001-富鈦-壓鑄機 編號︰','item001_id': item001_id,'item001': item001}
+    context = {'page_title':'item003-富甲-壓鑄機 編號︰','item001_id': item001_id,'item001': item001,'item001_upper': '/app001/item003/'}
     return render(request, 'app001/item001detail.html', context)     
 
 
@@ -105,9 +105,9 @@ def item001(request):
 
 def item002(request):
     if not request.user.is_authenticated:
-        context = {'page_title':'item002-富鈦-欠料','item_list': {}}
-        return render(request, 'app001/item002.html', context)     
-        
+        # context = {'page_title':'item002-富鈦-欠料','item_list': {}}
+        # return render(request, 'app001/item002.html', context)     
+        return redirect('/admin/login/?next=/app001/item002')        
     item_list = Item002.objects.order_by('field1')[:100]
     context = {'page_title':'item002-富鈦-欠料','item_list': item_list}
     return render(request, 'app001/item002.html', context)     
