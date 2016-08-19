@@ -42,7 +42,7 @@ class Item000(models.Model):
         return self.field1
 
 class Item001(models.Model):
-    field1 = models.CharField(primary_key=True,max_length=200,verbose_name="壓鑄機編號")
+    field1 = models.CharField(primary_key=True,max_length=200,verbose_name="幾號機")
     field1a = models.CharField(default=".",max_length=200,verbose_name="噸位")
     r01c6 = models.CharField(default=".",max_length=99,verbose_name="人員")
     r01c8 = models.CharField(default=".",max_length=99,verbose_name="日期")
@@ -240,23 +240,41 @@ class Item002(models.Model):
     field1 = models.CharField(primary_key=True,max_length=200,verbose_name="編號")
     field2 = models.CharField(default=".", max_length=200,verbose_name="客戶")
     field3 = models.CharField(default=".", max_length=200,verbose_name="品名")
-    field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
-    field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
-    field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
-    field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
+    # field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
+    # field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
+    # field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
+    # field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
+    field4 = models.CharField(default=".", max_length=200,verbose_name="計劃交貨日期")
+    field5 = models.CharField(default=".", max_length=200,verbose_name="客戶需求數")
+    field6 = models.CharField(default=".", max_length=200,verbose_name="實際出貨數")
+    field7 = models.CharField(default=".", max_length=200,verbose_name="延交數量")
     def __str__(self):
         return self.field1
         
         
-class Item004(models.Model):
-    # field1 = models.CharField(primary_key=True,max_length=200,verbose_name="壓鑄機編號")
+# class Item004(models.Model):
+#     # field1 = models.CharField(primary_key=True,max_length=200,verbose_name="壓鑄機編號")
     
+#     field1 = models.CharField(primary_key=True,max_length=200,verbose_name="編號")
+#     field2 = models.CharField(default=".", max_length=200,verbose_name="客戶")
+#     field3 = models.CharField(default=".", max_length=200,verbose_name="品名")
+#     field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
+#     field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
+#     field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
+#     field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
+#     def __str__(self):
+        # return self.field1
+class Item004(models.Model):
     field1 = models.CharField(primary_key=True,max_length=200,verbose_name="編號")
     field2 = models.CharField(default=".", max_length=200,verbose_name="客戶")
     field3 = models.CharField(default=".", max_length=200,verbose_name="品名")
-    field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
-    field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
-    field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
-    field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
+    # field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
+    # field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
+    # field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
+    # field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
+    field4 = models.CharField(default=".", max_length=200,verbose_name="計劃交貨日期")
+    field5 = models.CharField(default=".", max_length=200,verbose_name="客戶需求數")
+    field6 = models.CharField(default=".", max_length=200,verbose_name="實際出貨數")
+    field7 = models.CharField(default=".", max_length=200,verbose_name="延交數量")
     def __str__(self):
         return self.field1
