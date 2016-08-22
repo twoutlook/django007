@@ -7,6 +7,7 @@ from .models import Item001
 from .models import Item002
 from .models import Item003
 from .models import Item004
+# from .models import Item004v2
 from .models import Spec
 from .models import Cust
 
@@ -31,8 +32,13 @@ class Item002Admin(admin.ModelAdmin):
 admin.site.register(Item002,Item002Admin)
 
 class Item004Admin(admin.ModelAdmin):
-    list_display=['field1','field2','field3','field4','field5','field6','field7']
+    list_display=['f01','f02','f03','f04','f05','f06','f07','f08','f09','f10','f11','f12',]
 admin.site.register(Item004,Item004Admin)
+
+
+# class Item004v2Admin(admin.ModelAdmin):
+#     list_display=['ordernum','field1','field2','field3','field4','field5','field6','field7','field8']
+# admin.site.register(Item004v2,Item004v2Admin)
 
 #  r01c2 = models.CharField(default=".",max_length=99,verbose_name="几号机")
 #     r01c4 = models.CharField(default=".",max_length=99,verbose_name="吨位")
