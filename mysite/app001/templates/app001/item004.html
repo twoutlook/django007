@@ -23,6 +23,25 @@
 </h1> {% if item_list %}
         <table>
             <tr>
+                <th>id</th>
+                <th>f01</th>
+                <th>f02</th>
+                <th>f03</th>
+                <th>f04</th>
+                <th>f05</th>
+                <th>f06</th>
+                <th>f07</th>
+                <th>f08</th>
+                <th>f09</th>
+                <th>f10</th>
+                <th>f11</th>
+                <th>f12</th>
+                
+
+
+            </tr>
+<tr>
+                <th>筆數編號</th>
                 <th>客戶</th>
                 <th>量產訂單號</th>
                 <th>產品代碼</th>
@@ -42,11 +61,14 @@
 
             {% for item in item_list %}
             <tr>
+                <th>{{ item.id }}</th>
                 <th>{{ item.f01 }}</th>
                 <th>{{ item.f02 }}</th>
                 <th>{{ item.f03 }}</th>
                 <th>{{ item.f04 }}</th>
-                <th>{{ item.f05 }}</th>
+                <!--http://stackoverflow.com/questions/7737146/django-template-date-format-->
+                <!--https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date-->
+                <th>{{ item.f05|date:"Y-m-d"  }}</th>
                 <th>{{ item.f06 }}</th>
                 <th>{{ item.f07 }}</th>
                 <th>{{ item.f08 }}</th>

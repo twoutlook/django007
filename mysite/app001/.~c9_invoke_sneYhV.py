@@ -22,23 +22,11 @@ from .models import Item004
 from .models import Spec
 from .models import Cust
 
+
 class Item004Resource(resources.ModelResource):
 
     class Meta:
         model = Item004
-
-
-from import_export.admin import ImportExportModelAdmin
-
-# class BookAdmin(ImportExportModelAdmin):
-#     pass
-
-
-
-# class Item004Resource(resources.ModelResource):
-
-#     class Meta:
-#         model = Item004
 
 
 
@@ -59,11 +47,8 @@ class Item002Admin(admin.ModelAdmin):
     list_display=['field1','field2','field3','field4','field5','field6','field7']
 admin.site.register(Item002,Item002Admin)
 
-# class Item004Admin(admin.ModelAdmin):
-#     list_display=['f01','f02','f03','f04','f05','f06','f07','f08','f09','f10','f11','f12',]
-from import_export.admin import ImportExportModelAdmin
-class Item004Admin(ImportExportModelAdmin):
-    pass
+class Item004Admin(admin.ModelAdmin):
+    list_display=['f01','f02','f03','f04','f05','f06','f07','f08','f09','f10','f11','f12',]
 admin.site.register(Item004,Item004Admin)
 
 

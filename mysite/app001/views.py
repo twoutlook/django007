@@ -135,7 +135,7 @@ def item004(request):
         context = {'page_title':'item004-富甲-欠料','item_list': {}}
         return render(request, 'app001/item002.html', context)     
         
-    item_list = Item004.objects.order_by('f01','f02','f03',)[:400]
+    item_list = Item004.objects.order_by('id')[:400]
     context = {'page_title':'item004-富甲-欠料(版本2)','item_list': item_list}
     return render(request, 'app001/item004.html', context)     
 

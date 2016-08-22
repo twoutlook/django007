@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app001.apps.App001Config',
+    #http://django-import-export.readthedocs.io/en/latest/getting_started.html
+    'import_export',
+    
     
     'django.contrib.admin',
     'django.contrib.auth',

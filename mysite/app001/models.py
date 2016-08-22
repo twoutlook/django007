@@ -266,19 +266,30 @@ class Item002(models.Model):
         # return self.field1
 class Item004(models.Model):
     def __str__(self):
-        return self.f01+" "+self.f02+" "+self.f03+" "+self.f06+" ";
+        return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
  
     f01 = models.CharField(default=".", max_length=99,verbose_name="客戶")
     f02 = models.CharField(default=".", max_length=99,verbose_name="量產訂單號")
     f03 = models.CharField(default=".", max_length=99,verbose_name="產品代碼")        	  	        	
     f04 = models.CharField(default=".", max_length=99,verbose_name="產品名稱")
+    
     f05 = models.CharField(default=".", max_length=99,verbose_name="計劃交期")
-    f06 = models.CharField(default=".", max_length=99,verbose_name="訂單量")
-    f07 = models.CharField(default=".", max_length=99,verbose_name="已交量")
-    f08 = models.CharField(default=".", max_length=99,verbose_name="未交量")
-    f09 = models.CharField(default=".", max_length=99,verbose_name="備庫量")
-    f10 = models.CharField(default=".", max_length=99,verbose_name="欠備庫量")
-    f11 = models.CharField(default=".", max_length=99,verbose_name="客訴量")
+   # f05 = models.CharField(default=".", max_length=99,verbose_name="計劃交期")
+    f05 = models.DateField(verbose_name="計劃交期")
+    # f06 = models.CharField(default=".", max_length=99,verbose_name="訂單量")
+    #  f07 = models.CharField(default=".", max_length=99,verbose_name="已交量")
+    # f08 = models.CharField(default=".", max_length=99,verbose_name="未交量")
+    # f09 = models.CharField(default=".", max_length=99,verbose_name="備庫量")
+    # f10 = models.CharField(default=".", max_length=99,verbose_name="欠備庫量")
+    # f11 = models.CharField(default=".", max_length=99,verbose_name="客訴量")
+    # http://stackoverflow.com/questions/16527308/how-to-set-null-for-integerfield-instead-of-setting-0
+    f06 = models.IntegerField(default=0,verbose_name="訂單量")
+    
+    f07 = models.IntegerField(default=0,verbose_name="已交量")
+    f08 = models.IntegerField(default=0,verbose_name="未交量")
+    f09 = models.IntegerField(default=0,verbose_name="備庫量")
+    f10 = models.IntegerField(default=0,verbose_name="欠備庫量")
+    f11 = models.IntegerField(default=0,verbose_name="客訴量")
     f12 = models.CharField(default=".", max_length=99,verbose_name="模具壽命")
         
 #   編號	
