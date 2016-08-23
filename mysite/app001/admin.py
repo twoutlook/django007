@@ -17,6 +17,8 @@ from .models import Item000
 from .models import Item001
 from .models import Item002
 from .models import Item003
+from .models import Item003v2
+
 from .models import Item004
 # from .models import Item004v2
 from .models import Spec
@@ -147,6 +149,17 @@ class Item003Admin(admin.ModelAdmin):
      ]
 admin.site.register(Item003,Item003Admin)
 
+class Item003v2Admin(admin.ModelAdmin):
+    fieldsets = [
+        ('壓鑄機', {'fields': ['headera',]}),
+        ('噸位人員日期', {'fields': [ 'headerb','headerc','headerd',], 'classes': ['collapse']}),
+      
+        ('結構-格林柱', {'fields': ['data01a','data01b','data01c','data01d','data01e',], 'classes': ['collapse']}),
+    ]
+    list_display=[
+        'headera','headerb','headerc','headerd'
+    ]
+admin.site.register(Item003v2,Item003v2Admin)
 
 # admin.site.register(Item001)
 # admin.site.register(Item002)

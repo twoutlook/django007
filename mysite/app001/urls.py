@@ -17,8 +17,12 @@ urlpatterns = [
     
     # 在數據表沒有整合的情況下, 直接借 item001detail 來顯示單台機
     
-    url(r'^item003/(?P<item001_id>[_A-Za-z0-9-\\+]+)', views.item003detail, name='item001detail'), #item001/123 後面有東西都好
+    # url(r'^item003/(?P<item001_id>[_A-Za-z0-9-\#\\+]+)', views.item003detail, name='item003detail'), #item001/123 後面有東西都好
+    
+    #
+    url(r'^item003v2/(?P<item001_id>[_A-Za-z0-9-\#\\+]+)', views.item003v2detail, name='item003v2detail'), #item001/123 後面有東西都好
     url(r'^item003/$', views.item003, name='item003'),
+    url(r'^item003v2/$', views.item003v2, name='item003v2'),
     
     url(r'^item002/', views.item002, name='item002'),
     # url(r'^item003/', views.item003, name='item003'),

@@ -12,6 +12,8 @@ from .models import Item000
 from .models import Item001
 from .models import Item002
 from .models import Item003
+from .models import Item003v2
+
 from .models import Item004 # version 2
 
 # V2
@@ -99,6 +101,16 @@ def item003detail(request, item001_id):
     return render(request, 'app001/item001detail.html', context)     
 
 
+def item003v2detail(request):
+    if not request.user.is_authenticated:
+         return redirect('../../admin/login/?next=/app001')
+    item001=get_object_or_404(Item003v2, request.id)
+    print ("XXX---"+item001);
+    context = {'current_user':request.user,'page_title':'item003-富甲-壓鑄機 編號︰','item001': item001,'item001_upper': '/app001/item003/'}
+    return render(request, 'app001/item003v2detail.html', context)     
+
+
+
 def item001(request):
     # if not request.user.is_authenticated:
     #     context = {'page_title':'item001-富鈦-壓鑄機 編號︰','item_list': {}}
@@ -129,6 +141,16 @@ def item003(request):
     item_list = Item003.objects.order_by('field1')[:100]
     context = {'page_title':'item003-富甲-壓鑄機','item_list': item_list}
     return render(request, 'app001/item001.html', context)     
+
+
+def item003v2(request):
+    if not request.user.is_authenticated:
+        context = {'current_user':request.user,'page_title':'item003-富甲-壓鑄機','item_list': {}}
+        return render(request, 'app001/item003v2.html', context)     
+        
+    item_list = Item003v2.objects.order_by('headera')[:100]
+    context = {'page_title':'item003-富甲-壓鑄機','item_list': item_list}
+    return render(request, 'app001/item003v2.html', context)     
 
 
 
