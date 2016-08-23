@@ -45,7 +45,7 @@ def item000(request):
         return render(request, 'app001/index.html', context)     
         
     item_list = Item000.objects.order_by('field1')[:100]
-    context = {'current_user':request.user,'page_title':'雲端佈告欄','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'app001雲端佈告欄','item_list': item_list}
     print("by Mark: to debug here...")
     ip = get_ip(request)
     if ip is not None:
@@ -56,11 +56,8 @@ def item000(request):
 
 def spec(request):
     if not request.user.is_authenticated:
-    #     # return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
          return redirect('../../admin/login/?next=/app001/spec/')
-    #     context = {'page_title':'Spec','item_list': {}}
-    #     return render(request, 'app001/spec.html', context)     
-        
+
     item_list = Spec.objects.order_by('field1')[:100]
     context = {'page_title':'App001 SPEC','item_list': item_list,'current_user':request.user}
     return render(request, 'app001/spec.html', context)     
@@ -88,20 +85,26 @@ def cust(request):
 
 
 def item001detail(request, item001_id):
+    if not request.user.is_authenticated:
+         return redirect('../../admin/login/?next=/app001')
     item001=get_object_or_404(Item001, pk=item001_id)
     context = {'current_user':request.user,'page_title':'item001-富鈦-壓鑄機 編號︰','item001_id': item001_id,'item001': item001,'item001_upper': '/app001/item001/'}
     return render(request, 'app001/item001detail.html', context)     
 
 def item003detail(request, item001_id):
+    if not request.user.is_authenticated:
+         return redirect('../../admin/login/?next=/app001')
     item001=get_object_or_404(Item003, pk=item001_id)
     context = {'current_user':request.user,'page_title':'item003-富甲-壓鑄機 編號︰','item001_id': item001_id,'item001': item001,'item001_upper': '/app001/item003/'}
     return render(request, 'app001/item001detail.html', context)     
 
 
 def item001(request):
+    # if not request.user.is_authenticated:
+    #     context = {'page_title':'item001-富鈦-壓鑄機 編號︰','item_list': {}}
+    #     return render(request, 'app001/item001.html', context)     
     if not request.user.is_authenticated:
-        context = {'page_title':'item001-富鈦-壓鑄機 編號︰','item_list': {}}
-        return render(request, 'app001/item001.html', context)     
+         return redirect('../../admin/login/?next=/app001')
         
     item_list = Item001.objects.order_by('field1')[:100]
     context = {'current_user':request.user,'page_title':'item001-富鈦-壓鑄機','item_list': item_list}

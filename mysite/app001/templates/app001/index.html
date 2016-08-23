@@ -31,6 +31,16 @@
 
         {% if item_list %}
         <table>
+            <tr>
+                <th></th>
+                <th>佈告編號</th>
+                <th>廠別</th>
+                <th>資料名稱</th>
+                <th>輔導上線人員</th>
+                <th>補充說明</th>
+                
+            </tr>
+            
             {% for item in item_list %}
             <tr>
                 <th>{{ item.field1 }}</th>
