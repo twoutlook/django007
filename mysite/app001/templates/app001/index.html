@@ -2,54 +2,55 @@
 
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <title>app001</title>
-<link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
 
 </head>
+
 <body>
     <div class="header">
-                                
-    <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo"/></div>
+
+        <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo" /></div>
     </div>
     <div class='info'>
-        
-<h1>
+        <div class='current_user'>當前用戶: {{ current_user }} &nbsp;<a href="/app001/logout">登出</a>
+        </div>
+
+        <h1>
 {{ page_title }}
     
 </h1>
-       {{ current_user }}                                                     
-<!--<h1>Material List (<a href="../f2">next</a>)</h1>-->
-<!--&nbsp;<a href="../f1">F1</a>-->
-<!--&nbsp;<a href="../f2">F2</a>  -->
-<!--&nbsp;<a href="../s1">S1</a>-->
-<!--&nbsp;<a href="../s2">S2</a>-->
 
-{% if item_list %}
-    <table>
-    {% for item in item_list %}
-    <tr>
-    <th>{{ item.field1 }}</th>
-    <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
-    <td><a href='{{ item.field2 }}'>{{ item.field2 }}</a></td>
-    <td>{{ item.field3 }}</td>
-    <td>{{ item.field4 }}</td>
-    <td>{{ item.field5 }}</td>
-    <td>{{ item.field6 }}</td>
-    </tr>
-    {% endfor %}
+        <!--<h1>Material List (<a href="../f2">next</a>)</h1>-->
+        <!--&nbsp;<a href="../f1">F1</a>-->
+        <!--&nbsp;<a href="../f2">F2</a>  -->
+        <!--&nbsp;<a href="../s1">S1</a>-->
+        <!--&nbsp;<a href="../s2">S2</a>-->
 
-    </table>
-{% else %}
-    <p>無資料顯示，需要權限並<mark><a target='_blank' href='../admin/login/?next=/app001/'>登入</a></mark>才能查看。</p>
-    <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>。</p>
+        {% if item_list %}
+        <table>
+            {% for item in item_list %}
+            <tr>
+                <th>{{ item.field1 }}</th>
+                <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
+                <td><a href='{{ item.field2 }}'>{{ item.field2 }}</a></td>
+                <td>{{ item.field3 }}</td>
+                <td>{{ item.field4 }}</td>
+                <td>{{ item.field5 }}</td>
+                <td>{{ item.field6 }}</td>
+            </tr>
+            {% endfor %}
 
-{% endif %}
+        </table>
+        {% else %}
+        <p>無資料顯示，需要權限並<mark><a target='_blank' href='../admin/login/?next=/app001/'>登入</a></mark>才能查看。</p>
+        <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>。</p>
+
+        {% endif %}
 
     </div>
 </body>
+
 </html>
-
-
-
-

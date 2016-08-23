@@ -1,3 +1,10 @@
+.current_user{
+		margin: 10px 10px 0px 0px;
+}
+h1{
+		margin: 3px 0px 3px 0px;
+}
+
 body, html {
 		padding: 3px 3px 3px 3px;
 		background-color: #D8DBE2;
