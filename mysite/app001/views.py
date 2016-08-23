@@ -41,11 +41,11 @@ def item000(request):
     if not request.user.is_authenticated:
         # return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
         #return redirect('../admin')
-        context = {'page_title':'Cloud Bullitin','item_list': {}}
+        context = {'page_title':'雲端佈告欄','item_list': {}}
         return render(request, 'app001/index.html', context)     
         
     item_list = Item000.objects.order_by('field1')[:100]
-    context = {'page_title':'Cloud Bullitin','item_list': item_list}
+    context = {'page_title':'雲端佈告欄','item_list': item_list}
     print("by Mark: to debug here...")
     ip = get_ip(request)
     if ip is not None:
@@ -62,7 +62,7 @@ def spec(request):
     #     return render(request, 'app001/spec.html', context)     
         
     item_list = Spec.objects.order_by('field1')[:100]
-    context = {'page_title':'App001 SPEC','item_list': item_list}
+    context = {'page_title':'App001 SPEC','item_list': item_list,'current_user':request.user}
     return render(request, 'app001/spec.html', context)     
 
 def cust(request):
@@ -139,5 +139,13 @@ def item004(request):
     context = {'page_title':'item004-富甲-欠料(版本2)','item_list': item_list}
     return render(request, 'app001/item004.html', context)     
 
+def item004a(request):
+    if not request.user.is_authenticated:
+        context = {'page_title':'item004-富甲-欠料','item_list': {}}
+        return render(request, 'app001/item004a.html', context)     
+        
+    item_list = Item004.objects.order_by('id')[:400]
+    context = {'page_title':'item004-富甲-欠料','item_list': item_list}
+    return render(request, 'app001/item004a.html', context)     
 
 

@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^item002/', views.item002, name='item002'),
     # url(r'^item003/', views.item003, name='item003'),
     url(r'^item004/', views.item004, name='item004'),
+    url(r'^item004a/', views.item004, name='item004a'),
    
 ]
