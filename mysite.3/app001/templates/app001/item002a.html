@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>{{ page_title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
+
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo" /></div>
+    </div>
+    <div class='info'>
+        <div class='current_user'>當前用戶: {{ current_user }} &nbsp;<a href="/app001/logout">登出</a>
+        </div>
+
+        <h1>    <a href='..'>app001</a> |
+{{ page_title }}
+    </h1>
+    
+<!--    {% regroup people by gender as gender_list %}-->
+
+<!--<ul>-->
+<!--{% for gender in gender_list %}-->
+<!--    <li>{{ gender.grouper }}-->
+<!--    <ul>-->
+<!--        {% for item in gender.list %}-->
+<!--        <li>{{ item.first_name }} {{ item.last_name }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--    </li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+    
+{% regroup item_list by f01 as cust_list %}
+
+
+
+{% for cust in cust_list %}
+    <br><h3>{{ cust.grouper }}</h3>
+    <table>
+            <tr>
+                <th>量產訂單號</th>
+                <th>產品代碼</th>
+                <th>產品名稱</th>
+                <th>計劃交期</th>
+                <th>訂單量</th>
+                <th>已交量</th>
+                <th>未交量</th>
+                <th>備庫量</th>
+                <th>欠備庫量</th>
+                <th>客訴量</th>
+                <th>模具壽命</th>
+            </tr>
+      {% for item in cust.list %}
+        <tr>
+            <td>{{ item.f02 }}          </td>
+            <td>{{ item.f03 }}           </td>
+            <td>{{ item.f04 }}             </td>
+            <td>{{ item.f05|date:"Y-m-d" }}</td>
+            <td>{{ item.f06 }}     </td>
+            <td>{{ item.f07 }}        </td>
+            <td>{{ item.f08 }}        </td>
+            <td>{{ item.f09 }}  </td>
+            <td>{{ item.f10 }}   </td>
+            <td>{{ item.f11 }}     </td>
+            <td>{{ item.f12 }}    </td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+    
+{% endfor %}
+
+    
+</h1> 說明︰按用戶分組
+        <br> 備註︰可使用組合鍵 Ctrl-- 縮小字體，或是組合鍵 Ctrl++ 放大字體 {% if item_list %}
+        <table>
+            <tr>
+                <th>id</th>
+                <th>f01</th>
+                <th>f02</th>
+                <th>f03</th>
+                <th>f04</th>
+                <th>f05</th>
+                <th>f06</th>
+                <th>f07</th>
+                <th>f08</th>
+                <th>f09</th>
+                <th>f10</th>
+                <th>f11</th>
+                <th>f12</th>
+
+
+
+            </tr>
+            <tr>
+                <th>筆數編號</th>
+                <th>客戶</th>
+                <th>量產訂單號</th>
+                <th>產品代碼</th>
+                <th>產品名稱</th>
+                <th>計劃交期</th>
+                <th>訂單量</th>
+                <th>已交量</th>
+                <th>未交量</th>
+                <th>備庫量</th>
+                <th>欠備庫量</th>
+                <th>客訴量</th>
+                <th>模具壽命</th>
+
+
+
+            </tr>
+
+            {% for item in item_list %}
+            <tr>
+                <th>{{ item.id }}</th>
+                <td>{{ item.f01 }}</td>
+                <td>{{ item.f02 }}</td>
+                <td>{{ item.f03 }}</td>
+                <td>{{ item.f04 }}</td>
+                <!--http://stackoverflow.com/questions/7737146/django-template-date-format-->
+                <!--https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date-->
+                <td>{{ item.f05|date:"Y-m-d" }}</td>
+                <td>{{ item.f06 }}</td>
+                <td>{{ item.f07 }}</td>
+                <td>{{ item.f08 }}</td>
+                <td>{{ item.f09 }}</td>
+                <td>{{ item.f10 }}</td>
+                <td>{{ item.f11 }}</td>
+                <td>{{ item.f12 }}</td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% else %}
+        <p>無資料顯示，需要權限並<mark><a target='_blank' href='../../admin/login/?next=/app001/'>登入</a></mark>才能查看。</p>
+        <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>。</p>
+        {% endif %}
+
+    </div>
+</body>
+
+</html>

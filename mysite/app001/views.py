@@ -127,7 +127,7 @@ def item002(request):
     if not request.user.is_authenticated:
          return redirect('/')
  
-    item_list = Item002v2.objects.order_by('f01')[:400]
+    item_list = Item002v2.objects.order_by('id')[:400]
     context = {'current_user':request.user,'page_title':'ITEM002-富鈦-欠料-(B)','item_list': item_list}
     return render(request, 'app001/item002.html', context)     
 

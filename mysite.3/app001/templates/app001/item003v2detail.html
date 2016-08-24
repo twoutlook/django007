@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>id={{ item001_id }}</title>    
+<link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
+
+</head>
+<body>
+    <div class="header">
+                                
+    <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo"/></div>
+    </div>
+    <div class='info'>
+    <div class='current_user'>當前用戶: {{ current_user }} &nbsp;<a href="/app001/logout">登出</a>
+    </div>    
+    
+<h1>
+  <a href='/app001'>app001</a> |
+  .. |
+  
+{{ page_title }}
+{{ item001_id }}
+    
+</h1>
+<table>
+    <tr>
+        <th>幾號機</th>
+      <td><b><mark>  {{ item001.headera }}</b></mark></td>
+      
+    <!--</tr>-->
+       
+    <!--<tr>-->
+        <th>噸位</th>
+        <td> {{ item001.headerb }}</td>
+        <th>人員</th>
+        <td>  {{ item001.headerc }}</td>
+        <th>日期</th>
+        <td> {{ item001.headerd |date:"Y-m-d" }}</td>
+    </tr>
+    <tr>
+        						
+
+        <th>部位</th>
+        <th>組成</th>
+        <th>零件</th>
+        <th>進度一</th>
+        <th>進度二</th>
+        <th>進度三</th>
+        <th colspan='2'>備註說明</th>
+        
+        
+    </tr>
+<tr><td>結構</td><td>格林柱</td><td>{{item001.data01a}}</td><td>{{item001.data01b}}</td><td>{{item001.data01c}}</td><td>{{item001.data01d}}</td><td colspan="2">{{item001.data01e}}</td></tr>
+<tr><td></td><td>機架底座</td><td>{{item001.data02a}}</td><td>{{item001.data02b}}</td><td>{{item001.data02c}}</td><td>{{item001.data02d}}</td><td colspan="2">{{item001.data02e}}</td></tr>
+<tr><td></td><td>模板(定)</td><td>{{item001.data03a}}</td><td>{{item001.data03b}}</td><td>{{item001.data03c}}</td><td>{{item001.data03d}}</td><td colspan="2">{{item001.data03e}}</td></tr>
+<tr><td></td><td>模板(動)</td><td>{{item001.data04a}}</td><td>{{item001.data04b}}</td><td>{{item001.data04c}}</td><td>{{item001.data04d}}</td><td colspan="2">{{item001.data04e}}</td></tr>
+<tr><td></td><td>合模</td><td>{{item001.data05a}}</td><td>{{item001.data05b}}</td><td>{{item001.data05c}}</td><td>{{item001.data05d}}</td><td colspan="2">{{item001.data05e}}</td></tr>
+<tr><td></td><td>曲軸</td><td>{{item001.data06a}}</td><td>{{item001.data06b}}</td><td>{{item001.data06c}}</td><td>{{item001.data06d}}</td><td colspan="2">{{item001.data06e}}</td></tr>
+<tr><td></td><td>鋼帶</td><td>{{item001.data07a}}</td><td>{{item001.data07b}}</td><td>{{item001.data07c}}</td><td>{{item001.data07d}}</td><td colspan="2">{{item001.data07e}}</td></tr>
+<tr><td></td><td>膜厚調節</td><td>{{item001.data08a}}</td><td>{{item001.data08b}}</td><td>{{item001.data08c}}</td><td>{{item001.data08d}}</td><td colspan="2">{{item001.data08e}}</td></tr>
+<tr><td>壓射系統</td><td></td><td>{{item001.data09a}}</td><td>{{item001.data09b}}</td><td>{{item001.data09c}}</td><td>{{item001.data09d}}</td><td colspan="2">{{item001.data09e}}</td></tr>
+<tr><td>澆注系統</td><td></td><td>{{item001.data10a}}</td><td>{{item001.data10b}}</td><td>{{item001.data10c}}</td><td>{{item001.data10d}}</td><td colspan="2">{{item001.data10e}}</td></tr>
+<tr><td>油壓系統</td><td>油管</td><td>{{item001.data11a}}</td><td>{{item001.data11b}}</td><td>{{item001.data11c}}</td><td>{{item001.data11d}}</td><td colspan="2">{{item001.data11e}}</td></tr>
+<tr><td></td><td>過濾網</td><td>{{item001.data12a}}</td><td>{{item001.data12b}}</td><td>{{item001.data12c}}</td><td>{{item001.data12d}}</td><td colspan="2">{{item001.data12e}}</td></tr>
+<tr><td></td><td>油箱</td><td>{{item001.data13a}}</td><td>{{item001.data13b}}</td><td>{{item001.data13c}}</td><td>{{item001.data13d}}</td><td colspan="2">{{item001.data13e}}</td></tr>
+<tr><td></td><td>馬達</td><td>{{item001.data14a}}</td><td>{{item001.data14b}}</td><td>{{item001.data14c}}</td><td>{{item001.data14d}}</td><td colspan="2">{{item001.data14e}}</td></tr>
+<tr><td></td><td>電磁閥</td><td>{{item001.data15a}}</td><td>{{item001.data15b}}</td><td>{{item001.data15c}}</td><td>{{item001.data15d}}</td><td colspan="2">{{item001.data15e}}</td></tr>
+<tr><td>潤滑系統</td><td></td><td>{{item001.data16a}}</td><td>{{item001.data16b}}</td><td>{{item001.data16c}}</td><td>{{item001.data16d}}</td><td colspan="2">{{item001.data16e}}</td></tr>
+<tr><td>氮氣</td><td></td><td>{{item001.data17a}}</td><td>{{item001.data17b}}</td><td>{{item001.data17c}}</td><td>{{item001.data17d}}</td><td colspan="2">{{item001.data17e}}</td></tr>
+<tr><td>電路控制</td><td></td><td>{{item001.data18a}}</td><td>{{item001.data18b}}</td><td>{{item001.data18c}}</td><td>{{item001.data18d}}</td><td colspan="2">{{item001.data18e}}</td></tr>
+<tr><td>自動噴霧</td><td></td><td>{{item001.data19a}}</td><td>{{item001.data19b}}</td><td>{{item001.data19c}}</td><td>{{item001.data19d}}</td><td colspan="2">{{item001.data19e}}</td></tr>
+<tr><td>自動取出</td><td></td><td>{{item001.data20a}}</td><td>{{item001.data20b}}</td><td>{{item001.data20c}}</td><td>{{item001.data20d}}</td><td colspan="2">{{item001.data20e}}</td></tr>
+<tr><td>模具</td><td></td><td>{{item001.data21a}}</td><td>{{item001.data21b}}</td><td>{{item001.data21c}}</td><td>{{item001.data21d}}</td><td colspan="2">{{item001.data21e}}</td></tr>
+</table>
+   
+
+</body>
+</html>
+
+
+
+
