@@ -1,5 +1,29 @@
-{% extends 'app001/base.html' %}
-{% block content %}
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>機{{ item001_id }}</title>    
+<link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
+
+</head>
+<body>
+    <div class="header">
+                                
+    <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo"/></div>
+    </div>
+    <div class='info'>
+    <div class='current_user'>當前用戶: {{ current_user }} &nbsp;<a href="/app001/logout">登出</a>
+    </div>    
+    
+<h1>
+  <a href='/app001'>app001</a> |
+  .. |
+  
+{{ page_title }}
+{{ item001_id }}
+    
+</h1>
 <table>
     <tr>
         <td>幾號機</td>
@@ -57,8 +81,9 @@
 
 </table>
    
-<div class='template_name'>template: item001detail</div>
-{% endblock %}
+
+</body>
+</html>
 
 
 

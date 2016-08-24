@@ -42,11 +42,11 @@ from ipware.ip import get_ip
 def item000(request):
     if not request.user.is_authenticated:
         #  return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
-        context = {'page_title':'app001','item_list': {}}
+        context = {'page_title':'您現在訪問 APP001，但是還沒有登入','item_list': {}}
         return render(request, 'app001/index.html', context)     
         
     item_list = Item000.objects.order_by('field1')[:100]
-    context = {'current_user':request.user,'page_title':'app001雲端佈告欄','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'APP001-雲端佈告欄','item_list': item_list}
     print("by Mark: to debug here...")
     ip = get_ip(request)
     if ip is not None:
@@ -98,7 +98,7 @@ def item003detail(request, item001_id):
          return redirect('/')
  
     item001=get_object_or_404(Item003, pk=item001_id)
-    context = {'current_user':request.user,'page_title':'item003-富甲-壓鑄機 編號︰','item001_id': item001_id,'item001': item001,'item001_upper': '/app001/item003/'}
+    context = {'current_user':request.user,'page_title':'ITEM003-富甲-壓鑄機-單機 ','item001_id': item001_id,'item001': item001,'item001_upper': '/app001/item003/'}
     return render(request, 'app001/item001detail.html', context)     
 
 
@@ -106,7 +106,7 @@ def item003v2detail(request,item001_id):
     if not request.user.is_authenticated:
         return redirect('/')
     item001=get_object_or_404(Item003v2, pk=item001_id)
-    context = {'current_user':request.user,'page_title':'item003-富甲-壓鑄機 編號︰','item001': item001,'item001_upper': '/app001/item003/'}
+    context = {'current_user':request.user,'page_title':'ITEM003-富甲-壓鑄機-單機','item001': item001,'item001_upper': '/app001/item003/'}
     return render(request, 'app001/item003v2detail.html', context)     
 
 
@@ -120,7 +120,7 @@ def item001(request):
         #  return redirect('../../admin/login/?next=/app001')
         
     item_list = Item001.objects.order_by('field1')[:100]
-    context = {'current_user':request.user,'page_title':'item001-富鈦-壓鑄機','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'ITEM001-富鈦-壓鑄機','item_list': item_list}
     return render(request, 'app001/item001.html', context)     
 
 def item002(request):
@@ -128,7 +128,7 @@ def item002(request):
          return redirect('/')
  
     item_list = Item002v2.objects.order_by('f01')[:400]
-    context = {'current_user':request.user,'page_title':'item002-富鈦-欠料','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'ITEM002-富鈦-欠料-(B)','item_list': item_list}
     return render(request, 'app001/item002.html', context)     
 
 
@@ -138,7 +138,7 @@ def item003(request):
          return redirect('/')
         
     item_list = Item003.objects.order_by('field1')[:100]
-    context = {'page_title':'item003-富甲-壓鑄機','item_list': item_list}
+    context = {'page_title':'ITEM003-富甲-壓鑄機','item_list': item_list}
     return render(request, 'app001/item001.html', context)     
 
 
@@ -147,7 +147,7 @@ def item003v2(request):
          return redirect('/')
         
     item_list = Item003v2.objects.order_by('headera')[:100]
-    context = {'page_title':'item003-富甲-壓鑄機','item_list': item_list}
+    context = {'page_title':'ITEM003-富甲-壓鑄機','item_list': item_list}
     return render(request, 'app001/item003v2.html', context)     
 
 
@@ -158,22 +158,22 @@ def item004(request):
          return redirect('/')
         
     item_list = Item004.objects.order_by('id')[:400]
-    context = {'current_user':request.user,'page_title':'item004-富甲-欠料(版本2)','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'ITEM004-富甲-欠料(B)','item_list': item_list}
     # return render(request, 'app001/item004.html', context)     
-    # 201-08-24 11:00
-    # by Mark, 改用 item002.html
-    return render(request, 'app001/item002.html', context)     
+    # 201-08-24 11:00, by Mark, 改用 item002.html
+    # 201-08-24 14:56, by Mark, 改用 item004.html, Derrick 反應富鈦和富甲不完全相同 
+    return render(request, 'app001/item004.html', context)     
     
 def item004a(request):
     if not request.user.is_authenticated:
          return redirect('/')
         
     item_list = Item004.objects.order_by('id')[:400]
-    context = {'current_user':request.user,'page_title':'item004-富甲-欠料','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'ITEM004-富甲-欠料-(A)','item_list': item_list}
     
-    # 201-08-24 11:00
-    # by Mark, 改用 item002a.html
-    return render(request, 'app001/item002a.html', context)     
+    # 201-08-24 11:00, by Mark, 改用 item002a.html
+    # 201-08-24 14:56, by Mark, 改用 item004a.html, Derrick 反應富鈦和富甲不完全相同 
+    return render(request, 'app001/item004a.html', context)     
 
 
 def item002a(request):
@@ -181,7 +181,7 @@ def item002a(request):
          return redirect('/')
         
     item_list = Item002v2.objects.order_by('id')[:400]
-    context = {'current_user':request.user,'page_title':'item002-富鈦-欠料','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'ITEM002-富鈦-欠料-(A)','item_list': item_list}
     return render(request, 'app001/item002a.html', context)     
 
 

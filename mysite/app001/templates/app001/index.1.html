@@ -1,9 +1,33 @@
-{% extends 'app001/base_index.html' %}
-{% block content %}
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>app001</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
+
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo" /></div>
+    </div>
+    <div class='info'>
+        <div class='current_user'>當前用戶: {{ current_user }} &nbsp;<a href="/app001/logout">登出</a>
+        </div>
+
+        <h1>
+{{ page_title }}
+    
+</h1>
+
+
         {% if item_list %}
         <table>
             <tr>
-                <!--<th></th>-->
+                <th></th>
                 <th>佈告編號</th>
                 <th>廠別</th>
                 <th>資料名稱</th>
@@ -14,13 +38,13 @@
             
             {% for item in item_list %}
             <tr>
-                <!--<th>{{ item.field1 }}</th>-->
+                <th>{{ item.field1 }}</th>
                 <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
-                <td class='text_left'><a class='item_list' href='{{ item.field2 }}'>{{ item.field1 }}</a></td>
+                <td><a href='{{ item.field2 }}'>{{ item.field2 }}</a></td>
                 <td>{{ item.field3 }}</td>
                 <td>{{ item.field4 }}</td>
                 <td>{{ item.field5 }}</td>
-                <td  class='text_left'>{{ item.field6 }}</td>
+                <td>{{ item.field6 }}</td>
             </tr>
             {% endfor %}
 
@@ -34,4 +58,7 @@
         
         {% endif %}
 
-{% endblock %}
+    </div>
+</body>
+
+</html>
