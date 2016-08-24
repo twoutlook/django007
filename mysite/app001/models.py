@@ -351,34 +351,6 @@ class Item003(models.Model):
 
 
 
-class Item002(models.Model):
-    field1 = models.CharField(primary_key=True,max_length=200,verbose_name="編號")
-    field2 = models.CharField(default=".", max_length=200,verbose_name="客戶")
-    field3 = models.CharField(default=".", max_length=200,verbose_name="品名")
-    # field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
-    # field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
-    # field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
-    # field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
-    field4 = models.CharField(default=".", max_length=200,verbose_name="計劃交貨日期")
-    field5 = models.CharField(default=".", max_length=200,verbose_name="客戶需求數")
-    field6 = models.CharField(default=".", max_length=200,verbose_name="實際出貨數")
-    field7 = models.CharField(default=".", max_length=200,verbose_name="延交數量")
-    def __str__(self):
-        return self.field1
-        
-        
-# class Item004(models.Model):
-#     # field1 = models.CharField(primary_key=True,max_length=200,verbose_name="壓鑄機編號")
-    
-#     field1 = models.CharField(primary_key=True,max_length=200,verbose_name="編號")
-#     field2 = models.CharField(default=".", max_length=200,verbose_name="客戶")
-#     field3 = models.CharField(default=".", max_length=200,verbose_name="品名")
-#     field4 = models.CharField(default=".", max_length=200,verbose_name="欠料量")
-#     field5 = models.CharField(default=".", max_length=200,verbose_name="欠備庫量")
-#     field6 = models.CharField(default=".", max_length=200,verbose_name="客訴量")
-#     field7 = models.CharField(default=".", max_length=200,verbose_name="模具壽命")
-#     def __str__(self):
-        # return self.field1
 class Item004(models.Model):
     def __str__(self):
         return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
@@ -407,25 +379,22 @@ class Item004(models.Model):
     f11 = models.IntegerField(default=0,verbose_name="客訴量")
     f12 = models.CharField(default=".", max_length=99,verbose_name="模具壽命")
         
-#   編號	
-# 1      2               3           4           5           6       7       8        9      10         11      12            
-# 客戶	量產訂單號      產品代碼    產品名稱    計劃交期	訂單量  已交量	未交量  備庫量  欠備庫量    客訴量	模具壽命
-
-# 客户	量产订单号    	产品代码	产品名称	计划交期	订单量	已交量	未交量	备库量	欠备库量	客訴量	模具壽命?%
-# 客户	量产订单号    	产品代码	产品名称	计划交期	订单量	已交量	未交量	备库量	欠备库量	客訴量	模具壽命?%
-
-# 客户	量产订单号	产品代码	产品名称	计划交期	订单数量	实际出货数	延交数
-# 客户	量产订单号	产品代码	产品名称	计划交期	订单数量	实际出货数	延交数
-# class Item004v2(models.Model):
-#     ordernum = models.IntegerField(default=0)
-#     # field1 = models.CharField(primary_key=True,max_length=200,verbose_name="編號")
-#     field1 = models.CharField(default=".", max_length=200,verbose_name="客戶")
-#     field2 = models.CharField(default=".", max_length=200,verbose_name="量產訂單號")
-#     field3 = models.CharField(default=".", max_length=200,verbose_name="產品代碼")
-#     field4 = models.CharField(default=".", max_length=200,verbose_name="產品名稱")
-#     field5 = models.CharField(default=".", max_length=200,verbose_name="計畫交期")
-#     field6 = models.CharField(default=".", max_length=200,verbose_name="訂單數量")
-#     field7 = models.CharField(default=".", max_length=200,verbose_name="實際出貨數")
-#     field8 = models.CharField(default=".", max_length=200,verbose_name="延交數量")
-#     def __str__(self):
-#         return self.field1
+# by Mark,2016-08-24 10:20 copy Item004
+# http://stackoverflow.com/questions/16527308/how-to-set-null-for-integerfield-instead-of-setting-0
+class Item002v2(models.Model):
+    f01 = models.CharField(default=".", max_length=99,verbose_name="客戶")
+    f02 = models.CharField(default=".", max_length=99,verbose_name="量產訂單號")
+    f03 = models.CharField(default=".", max_length=99,verbose_name="產品代碼")        	  	        	
+    f04 = models.CharField(default=".", max_length=99,verbose_name="產品名稱")
+    f05 = models.DateField(null=True, verbose_name="計劃交期")
+    f06 = models.IntegerField(default=0,verbose_name="訂單量")
+    f07 = models.IntegerField(default=0,verbose_name="已交量")
+    f08 = models.IntegerField(default=0,verbose_name="未交量")
+    f09 = models.IntegerField(default=0,verbose_name="備庫量")
+    f10 = models.IntegerField(default=0,verbose_name="欠備庫量")
+    f11 = models.IntegerField(default=0,verbose_name="客訴量")
+    f12 = models.CharField(default=".", max_length=99,verbose_name="模具壽命")
+    def __str__(self):
+        return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
+ 
+    

@@ -31,9 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'portal',
     'app001.apps.App001Config',
     #http://django-import-export.readthedocs.io/en/latest/getting_started.html
     'import_export',
+    # https://github.com/dyve/django-bootstrap3
+    'bootstrap3',
     
     
     'django.contrib.admin',

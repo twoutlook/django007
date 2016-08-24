@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^item003v2/$', views.item003v2, name='item003v2'),
     
     url(r'^item002/', views.item002, name='item002'),
-    # url(r'^item003/', views.item003, name='item003'),
+    url(r'^item002a/', views.item002a, name='item002a'),
+    
     url(r'^item004/', views.item004, name='item004'),
     url(r'^item004a/', views.item004a, name='item004a'),
     url(r'^logout/', views.logout_view, name='logout_view'),
