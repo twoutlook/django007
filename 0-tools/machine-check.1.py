@@ -31,33 +31,31 @@ dlist=[d01,d02,d03,d04,d05,d06,d07,d08,d09,d10,d11,d12,d13,d14,d15,d16,d17,d18,d
 idx=0
 for d in dlist:
     choice_id = 1+ idx
-    str_items=""
-
     if (choice_id<10):
-        str_items +="d0"+str(choice_id)+" = ["
+        print ("    d0"+str(choice_id)+" = [")
     else:
-        str_items +="d"+str(choice_id)+" = ["
+        print ("    d"+str(choice_id)+" = [")
         
         
+    str_items=""
     for item in d:
-        str_items +="'"+item+"',"
+        str_items +="'"+item+"'"
 
     idx +=1
-    str_items += "]"
-    print (str_items)
+    print (str_items+"]")
 
 
-# for d in dlist:
-#     choice_id = 1+ idx
-#     if (choice_id<10):
-#         print ("    CHOICE0"+str(choice_id)+" = (")
-#     else:
-#         print ("    CHOICE"+str(choice_id)+" = (")
+for d in dlist:
+    choice_id = 1+ idx
+    if (choice_id<10):
+        print ("    CHOICE0"+str(choice_id)+" = (")
+    else:
+        print ("    CHOICE"+str(choice_id)+" = (")
         
         
     
-#     for item in d:
-#         print("        ('"+item+"','"+item+"'),")
+    for item in d:
+        print("        ('"+item+"','"+item+"'),")
 
-#     idx +=1
-#     print ("    )")
+    idx +=1
+    print ("    )")
