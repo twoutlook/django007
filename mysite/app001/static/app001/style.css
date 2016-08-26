@@ -7,6 +7,7 @@
 .page_data{	margin: 0px 0px 0px 10px;}
 .text_left{	 text-align: left; padding-left: 8px}
 .item_list{	font-size: 120%; text-decoration:none;}
+.notice{ margin: 15px 0px 12px 10px;	font-size: 150%; font-style: italic;color:blue;}
 .template_name{	margin-top:10px; font-size: 90%; font-style: italic;}
 
 h1{

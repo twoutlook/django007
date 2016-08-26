@@ -22,6 +22,9 @@ from .models import Item003v2
 # from .models import Item004
 from .models import Item005
 from .models import Item006
+from .models import Item007
+from .models import Item008
+
 
 
 from .models import Spec
@@ -77,6 +80,14 @@ admin.site.register(Item005,Item005Admin)
 class Item006Admin(ImportExportModelAdmin):
     pass
 admin.site.register(Item006,Item006Admin)
+
+# class Item007Admin(ImportExportModelAdmin):
+#     pass
+# admin.site.register(Item007,Item007Admin)
+
+class Item008Admin(ImportExportModelAdmin):
+    pass
+admin.site.register(Item008,Item008Admin)
 
 
 class Item002v2Admin(ImportExportModelAdmin):

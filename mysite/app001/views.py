@@ -18,6 +18,9 @@ from .models import Item004 # version 2
 
 from .models import Item005
 from .models import Item006 #2016-08-26 按胡課要求同富甲方式實施
+from .models import Item007
+from .models import Item008
+
 
 
 # V2
@@ -154,6 +157,37 @@ def item003v2(request):
     context = {'page_title':'ITEM003-富甲-壓鑄機','item_list': item_list}
     return render(request, 'app001/item003v2.html', context)     
 
+def item007(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item007.objects.order_by('headera')[:100]
+    context = {'page_title':'ITEM007-富甲-壓鑄機','item_list': item_list}
+    return render(request, 'app001/item007.html', context)     
+
+def item008(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item008.objects.order_by('headera')[:100]
+    context = {'page_title':'ITEM008-富甲-壓鑄機','item_list': item_list}
+    return render(request, 'app001/item008.html', context)     
+
+def item007detail(request,item001_id):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    item001=get_object_or_404(Item007, pk=item001_id)
+    context = {'current_user':request.user,'page_title':'ITEM007-富甲-壓鑄機-單機','item001': item001,'item001_upper': '/app001/item003/'}
+    return render(request, 'app001/item007detail.html', context)     
+
+def item008detail(request,item001_id):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    item001=get_object_or_404(Item008, pk=item001_id)
+    context = {'current_user':request.user,'page_title':'ITEM008-富甲-壓鑄機-單機','item001': item001,'item001_upper': '/app001/item003/'}
+    return render(request, 'app001/item008detail.html', context)     
+
+
 
 
 
@@ -233,3 +267,49 @@ def item006(request):
     context = {'current_user':request.user,'page_title':'ITEM006-富鈦-欠料明细','item_list': item_list}
     #使用ITEM005  template
     return render(request, 'app001/item005.html', context)     
+
+def dev001(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    # item_list = Item006.objects.order_by('f01','f03','id')[:400]
+    
+    d01=['---','正常','磨損','無法修復']
+    d02=['---','正常','磨損','裂縫','磨損、裂縫']
+    d03=['---','正常','平面變型','無法修復']
+    d04=['---','正常','平面變型','無法修復']
+    d05=['---','正常','合模缸漏油','合模缸螺旋斷裂','合模活塞磨損','無法修復']
+    d06=['---','正常','磨損','無法修復']
+    d07=['---','正常','磨損','斷裂','無法修復']
+    d08=['---','正常','開關損壞','線路不通','無法修復']
+    d09=['---','正常','無壓力','線路不通','壓射缸漏油','射杆彎曲']
+    d10=['---','正常','斷線','短路','鏈條斷','編碼器異常','銅套磨損']
+    d11=['---','正常','磨損','斷裂','接頭滑絲']
+    d12=['---','正常','破損','堵塞']
+    d13=['---','正常','油品變質']
+    d14=['---','正常','磨損','軸心斷裂']
+    d15=['---','正常','線路不通','閥心斷裂']
+    d16=['---','正常','管道不通','管道斷裂','泵心磨損']
+    d17=['---','正常','鋼瓶裂縫','壓力過高','壓力過低']
+    d18=['---','正常','線路不通','短路']
+    d19=['---','正常','霧化器損壞','線路不通','緩衝彈簧斷裂']
+    d20=['---','正常','開關損壞','軸承磨損','緩衝器斷裂','線路不通','編碼器異常']
+    d21=['---','正常','尺寸NG','模崩','模芯斷','重覆修模','待修模']
+        # CHOICE03=(
+        #     ('---','---'),
+        #     ('正常','正常'),
+        #     ('平面變型','平面變型'),
+        #     ('裂縫 ','裂縫'),
+        #     ('無法修復','無法修復'),
+        # )
+    
+    dlist=[d01,d02,d03,d04,d05,d06,d07,d08,d09,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21]    
+    
+    
+    item_list = {"input":dlist,"result":"將生成的代碼在這裡顯示"}
+    
+    context = {'current_user':request.user,'page_title':'DEV001-生成代碼-壓鑄機備註說明','item_list': item_list}
+    #使用ITEM005  template
+    return render(request, 'app001/dev001.html', context)     
+
+
