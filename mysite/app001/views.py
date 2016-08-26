@@ -16,6 +16,10 @@ from .models import Item003v2
 
 from .models import Item004 # version 2
 
+from .models import Item005
+from .models import Item006 #2016-08-26 按胡課要求同富甲方式實施
+
+
 # V2
 # from .models import Item004v2
 
@@ -196,3 +200,36 @@ def logout_view(request):
     # 2016-08-24
     # When log out, got to root 
     return redirect('/')        
+
+# 201-08-25 13:00, by Mark, 客戶|產品 兩層分組
+def item004c(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item004.objects.order_by('f01','f03')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM004-富甲-欠料-(打樣一)','item_list': item_list}
+    return render(request, 'app001/item004c.html', context)     
+def item004d(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item004.objects.order_by('f01','f03')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM004-富甲-欠料-(打樣二)','item_list': item_list}
+    return render(request, 'app001/item004d.html', context)     
+
+def item005(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item005.objects.order_by('f01','f03','id')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM005-富甲-欠料明细','item_list': item_list}
+    return render(request, 'app001/item005.html', context)     
+
+def item006(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item006.objects.order_by('f01','f03','id')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM006-富鈦-欠料明细','item_list': item_list}
+    #使用ITEM005  template
+    return render(request, 'app001/item005.html', context)     

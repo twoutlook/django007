@@ -10,23 +10,26 @@
 from django.contrib import admin
 from import_export.admin import ImportMixin
 from import_export import resources, fields
-
+from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 # from .models import Customer
 from .models import Item000
 from .models import Item001
 from .models import Item002v2
-from .models import Item003
+# from .models import Item003
 from .models import Item003v2
 
-from .models import Item004
-# from .models import Item004v2
-from .models import Spec
-from .models import Cust
+# from .models import Item004
+from .models import Item005
+from .models import Item006
 
-class Item004Resource(resources.ModelResource):
-    class Meta:
-        model = Item004
+
+from .models import Spec
+# from .models import Cust
+
+# class Item004Resource(resources.ModelResource):
+#     class Meta:
+#         model = Item004
 
 
 from import_export.admin import ImportExportModelAdmin
@@ -52,9 +55,9 @@ class SpecAdmin(admin.ModelAdmin):
     list_display=['field1','field2']
 admin.site.register(Spec,SpecAdmin)
 
-class CustAdmin(admin.ModelAdmin):
-    list_display=['field1','field2']
-admin.site.register(Cust,CustAdmin)
+# class CustAdmin(admin.ModelAdmin):
+#     list_display=['field1','field2']
+# admin.site.register(Cust,CustAdmin)
 
 # class Item002Admin(admin.ModelAdmin):
 #     list_display=['field1','field2','field3','field4','field5','field6','field7']
@@ -62,10 +65,18 @@ admin.site.register(Cust,CustAdmin)
 
 # class Item004Admin(admin.ModelAdmin):
 #     list_display=['f01','f02','f03','f04','f05','f06','f07','f08','f09','f10','f11','f12',]
-from import_export.admin import ImportExportModelAdmin
-class Item004Admin(ImportExportModelAdmin):
+# from import_export.admin import ImportExportModelAdmin
+# class Item004Admin(ImportExportModelAdmin):
+#     pass
+# admin.site.register(Item004,Item004Admin)
+
+class Item005Admin(ImportExportModelAdmin):
     pass
-admin.site.register(Item004,Item004Admin)
+admin.site.register(Item005,Item005Admin)
+
+class Item006Admin(ImportExportModelAdmin):
+    pass
+admin.site.register(Item006,Item006Admin)
 
 
 class Item002v2Admin(ImportExportModelAdmin):
@@ -73,19 +84,11 @@ class Item002v2Admin(ImportExportModelAdmin):
 admin.site.register(Item002v2,Item002v2Admin)
 
 
-class Item003Admin(ImportExportModelAdmin):
-    pass
-admin.site.register(Item003,Item003Admin)
+# class Item003Admin(ImportExportModelAdmin):
+#     pass
+# admin.site.register(Item003,Item003Admin)
 
-# class Item004v2Admin(admin.ModelAdmin):
-#     list_display=['ordernum','field1','field2','field3','field4','field5','field6','field7','field8']
-# admin.site.register(Item004v2,Item004v2Admin)
 
-#  r01c2 = models.CharField(default=".",max_length=99,verbose_name="几号机")
-#     r01c4 = models.CharField(default=".",max_length=99,verbose_name="吨位")
-#     r01c6 = models.CharField(default=".",max_length=99,verbose_name="人员")
-#     r01c8 = models.CharField(default=".",max_length=99,verbose_name="日期")
- 
 class Item001Admin(admin.ModelAdmin):
     fieldsets = [
         ('壓鑄機', {'fields': ['field1',]}),

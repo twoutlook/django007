@@ -542,3 +542,47 @@ class Item002v2(models.Model):
         return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
  
     
+class Item005(models.Model):
+    f01 = models.CharField(default=".", max_length=99,verbose_name="客戶")
+    f02 = models.CharField(default=".", max_length=99,verbose_name="量產訂單號")
+    f03 = models.CharField(default=".", max_length=99,verbose_name="產品代碼")        	  	        	
+    f04 = models.CharField(default=".", max_length=99,verbose_name="產品名稱")
+    f04a = models.CharField(default=".", max_length=99,verbose_name="單件品名")
+    f04b = models.CharField(default=".", max_length=99,verbose_name="機台噸位")
+    f05 = models.DateField(null=True, verbose_name="計劃交期")
+    f06 = models.IntegerField(default=0,verbose_name="訂單量")
+    f07 = models.IntegerField(default=0,verbose_name="已交量")
+    f08 = models.IntegerField(default=0,verbose_name="未交量")
+    # f09 = models.IntegerField(default=0,verbose_name="備庫量")
+    f10 = models.IntegerField(default=0,verbose_name="欠備庫量")
+    # f11 = models.IntegerField(default=0,verbose_name="客訴量")
+    # f12 = models.CharField(default=".", max_length=99,verbose_name="模具壽命")
+    stat1 = models.CharField(default=".", max_length=99,verbose_name="進度一")
+    stat2 = models.CharField(default=".", max_length=99,verbose_name="進度二")
+    stat3 = models.CharField(default=".", max_length=99,verbose_name="進度三")
+    
+    def __str__(self):
+        return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
+    
+class Item006(models.Model):
+    f01 = models.CharField(default=".", max_length=99,verbose_name="客戶")
+    f02 = models.CharField(default=".", max_length=99,verbose_name="量產訂單號")
+    f03 = models.CharField(default=".", max_length=99,verbose_name="產品代碼")        	  	        	
+    f04 = models.CharField(default=".", max_length=99,verbose_name="產品名稱")
+    f04a = models.CharField(default=".", max_length=99,verbose_name="單件品名")
+    f04b = models.CharField(default=".", max_length=99,verbose_name="機台噸位")
+    f05 = models.DateField(null=True, verbose_name="計劃交期")
+    f06 = models.IntegerField(default=0,verbose_name="訂單量")
+    f07 = models.IntegerField(default=0,verbose_name="已交量")
+    f08 = models.IntegerField(default=0,verbose_name="未交量")
+    # f09 = models.IntegerField(default=0,verbose_name="備庫量")
+    f10 = models.IntegerField(default=0,verbose_name="欠備庫量")
+    # f11 = models.IntegerField(default=0,verbose_name="客訴量")
+    # f12 = models.CharField(default=".", max_length=99,verbose_name="模具壽命")
+    stat1 = models.CharField(default=".", max_length=99,verbose_name="進度一")
+    stat2 = models.CharField(default=".", max_length=99,verbose_name="進度二")
+    stat3 = models.CharField(default=".", max_length=99,verbose_name="進度三")
+    
+    def __str__(self):
+        return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
+     
