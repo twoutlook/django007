@@ -1,3 +1,10 @@
+   r03c7xx0 = models.NullBooleanField(verbose_name="格林柱-備註說明-正常")
+    r03c7xx1 = models.NullBooleanField(verbose_name="格林柱-備註說明-磨損")
+    r03c7xx2 = models.NullBooleanField(verbose_name="格林柱-備註說明-無法修復")
+ 
+
+
+
 d01 = ['---','正常','磨損','無法修復',]
 d02 = ['---','正常','磨損','裂縫','磨損、裂縫',]
 d03 = ['---','正常','平面變型','無法修復',]

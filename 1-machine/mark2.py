@@ -48,6 +48,9 @@ for  v1,v2,v3,v4 in zip(cola,colb,colc, rem):
             exx='    data{0:02d}e_{1:02d} = models.NullBooleanField(verbose_name="{2:s} {3:s} 備註說明  {4:s}")'.format(v, i, v1,v2,rem)
             print (exx)    
             i += 1
+            
+            
+            
     
     # data01a = models.CharField(default=".",max_length=99,verbose_name="格林柱-零件")
     # data01b = models.CharField(default=".",max_length=99,verbose_name="格林柱-進度一")

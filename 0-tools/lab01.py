@@ -1,3 +1,6 @@
+print ("Name: %s, age: %d" % ('John', 35)) 
+
+# http://pythoncentral.io/pythons-range-function-explained/
 d01=['---','正常','磨損','無法修復']
 d02=['---','正常','磨損','裂縫','磨損、裂縫']
 d03=['---','正常','平面變型','無法修復']
@@ -26,36 +29,19 @@ d21=['---','正常','尺寸NG','模崩','模芯斷','重覆修模','待修模']
     #     ('裂縫 ','裂縫'),
     #     ('無法修復','無法修復'),
     # )
+d00=['']
+dlist=[d00,d01,d02,d03,d04,d05,d06,d07,d08,d09,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21]
 
-dlist=[d01,d02,d03,d04,d05,d06,d07,d08,d09,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21]
-idx=0
-for d in dlist:
-    choice_id = 1+ idx
-    if (choice_id<10):
-        print ("    d0"+str(choice_id)+" = [")
-    else:
-        print ("    d"+str(choice_id)+" = [")
-        
-        
-    str_items=""
-    for item in d:
-        str_items +="'"+item+"'"
-
-    idx +=1
-    print (str_items+"]")
-
-idx=0
-for d in dlist:
-    choice_id = 1+ idx
-    if (choice_id<10):
-        print ("    CHOICE0"+str(choice_id)+" = (")
-    else:
-        print ("    CHOICE"+str(choice_id)+" = (")
-        
-        
+# http://stackoverflow.com/questions/22617/format-numbers-to-strings-in-python
+# xxx="MM/DD/YY = {0:02d}/{1:02d}/{2:02d}".format(12, 7, 41) 
     
-    for item in d:
-        print("        ('"+item+"','"+item+"'),")
+for i in range(1, len(dlist)):
+    str_items = "    CHOICE{0:02d} = (\n".format(i)
+    for item in dlist[i]:
+        str_items += "        ('"+item+"','"+item+"'),\n"
+    str_items +="    )\n"
+    
 
-    idx +=1
-    print ("    )")
+
+    print (str_items)
+    # print (yyy, dlist[i])
