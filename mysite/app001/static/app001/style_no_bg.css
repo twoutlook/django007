@@ -16,19 +16,21 @@ h1{
 
 body, html {
 		padding: 0px 3px 10px 3px;
-		background-color: #D8DBE2;
-		background:#fff url(images/bg.jpg) repeat-x;}
+		/*background-color: #D8DBE2;*/
+		/*background:#fff url(images/bg.jpg) repeat-x;}*/
 	  
 table {
-color: #333; /* Lighten up font color */
+	
+color: black; /* Lighten up font color */
 font-family: Helvetica, Arial, sans-serif; /* Nicer font */
-width: 95%;
+/*width: 92%;*/
 font-size:90%;
 border-collapse:
 collapse; border-spacing: 0;
 }
 
-td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+td, th { border: 1px solid black; height: 30px; } /* Make cells a bit taller */
 
 th {
 background: #F3F3F3; /* Light grey background */

@@ -20,6 +20,8 @@ from .models import Item005
 from .models import Item006 #2016-08-26 按胡課要求同富甲方式實施
 from .models import Item007
 from .models import Item008
+from .models import Item009
+
 
 
 
@@ -173,6 +175,16 @@ def item008(request):
     context = {'page_title':'ITEM008-富甲-壓鑄機','item_list': item_list}
     return render(request, 'app001/item008.html', context)     
 
+def item009(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    item_list = Item009.objects.order_by('headera')[:100]
+    context = {'page_title':'ITEM009-富甲-壓鑄機','item_list': item_list}
+    return render(request, 'app001/item009.html', context)     
+
+
+
 def item007detail(request,item001_id):
     if not request.user.is_authenticated:
         return redirect('/')
@@ -183,11 +195,30 @@ def item007detail(request,item001_id):
 def item008detail(request,item001_id):
     if not request.user.is_authenticated:
         return redirect('/')
-    item001=get_object_or_404(Item008, pk=item001_id)
-    context = {'current_user':request.user,'page_title':'ITEM008-富甲-壓鑄機-單機','item001': item001,'item001_upper': '/app001/item003/'}
+    data=get_object_or_404(Item008, pk=item001_id)
+    context = {'current_user':request.user,'page_title':'ITEM008-富甲-壓鑄機-單機','data': data,'item001_upper': '/app001/item003/'}
     return render(request, 'app001/item008detail.html', context)     
 
+def item009detail(request,item001_id):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    item001=get_object_or_404(Item009, pk=item001_id)
+    context = {'current_user':request.user,'page_title':'ITEM009-富鈦-壓鑄機-單機','item001': item001,'item001_upper': '/app001/item003/'}
+    return render(request, 'app001/item008detail.html', context)     
 
+def item008blueprint(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    # item001=get_object_or_404(Item009, pk=item001_id)
+    context = {'current_user':request.user,'page_title':'ITEM008-富甲-壓鑄機-(需求說明)','item001_upper': '/app001/item003/'}
+    return render(request, 'app001/item008blueprint.html', context)     
+
+def item009blueprint(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    # item001=get_object_or_404(Item009, pk=item001_id)
+    context = {'current_user':request.user,'page_title':'ITEM009-富鈦-壓鑄機-(需求說明)','item001_upper': '/app001/item003/'}
+    return render(request, 'app001/item009blueprint.html', context)     
 
 
 

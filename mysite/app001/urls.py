@@ -32,6 +32,12 @@ urlpatterns = [
   
     url(r'^item008/(?P<item001_id>[_A-Za-z0-9-\#\\+]+)', views.item008detail, name='item008detail'), #item001/123 後面有東西都好
     url(r'^item008/$', views.item008, name='item008'),
+    
+    url(r'^item009/(?P<item001_id>[_A-Za-z0-9-\#\\+]+)', views.item009detail, name='item009detail'), #item001/123 後面有東西都好
+    url(r'^item009/$', views.item009, name='item009'),
+    
+    url(r'^item008blueprint/$', views.item008blueprint, name='item008blueprint'),
+    url(r'^item009blueprint/$', views.item009blueprint, name='item009blueprint'),
   
   
   
