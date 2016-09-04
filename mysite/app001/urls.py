@@ -53,7 +53,9 @@ urlpatterns = [
     url(r'^item005/', views.item005, name='item005'),
     url(r'^item006/', views.item006, name='item006'),
     url(r'^dev001/', views.dev001, name='dev001'),
+    url(r'^help/', views.help, name='help'),
     
+    url(r'^index_bootstrap/', views.index_bootstrap, name='index_bootstrap'),
     url(r'^logout/', views.logout_view, name='logout_view'),
     
    

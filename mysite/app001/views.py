@@ -64,6 +64,30 @@ def item000(request):
         print("we don't have an IP address for user")
     return render(request, 'app001/index.html', context)     
 
+
+def index_bootstrap(request):
+    if not request.user.is_authenticated:
+        #  return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        context = {'page_title':'APP001-雲端佈告欄 (手機版)','item_list': {}}
+        return render(request, 'app001/index_bootstrap.html', context)     
+        
+    item_list = Item000.objects.order_by('field1')[:100]
+    context = {'current_user':request.user,'page_title':'APP001-雲端佈告欄 (手機版)','item_list': item_list}
+    print("by Mark: to debug here...")
+    ip = get_ip(request)
+    if ip is not None:
+        print("we have an IP address for user: "+ip)
+    else:
+        print("we don't have an IP address for user")
+    return render(request, 'app001/index_bootstrap.html', context)     
+
+def help(request):
+    # item_list = Spec.objects.order_by('field1')[:100]
+    context = {'page_title':'App001 Help','item_list': [],'current_user':request.user}
+    return render(request, 'app001/help.html', context)     
+
+
+
 def spec(request):
     if not request.user.is_authenticated:
          return redirect('../../admin/login/?next=/app001/spec/')
@@ -181,7 +205,7 @@ def item009(request):
         
     item_list = Item009.objects.order_by('headera')[:100]
     context = {'page_title':'ITEM009-富甲-壓鑄機','item_list': item_list}
-    return render(request, 'app001/item009.html', context)     
+    return render(request, 'app001/item008.html', context)     
 
 
 
